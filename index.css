@@ -555,7 +555,13 @@ body {
 
 @media (max-width: 768px) {
   /* Image Sections Layout */
-  .fifth  thimg a {
+  .fifthimg {
+    height: auto;
+    padding: 2rem 0;
+    position: relative;
+  }
+
+  .fifthimg a {
     position: relative;
     top: 0;
     left: 0;
@@ -567,7 +573,7 @@ body {
 
   .fifthimg a button{
     position: relative;
-    top: 150px;
+    bottom: 40px;
     left: 0;
     /* transform: none;
     display: block;
@@ -575,6 +581,39 @@ body {
     margin: 1rem auto 2rem;
     margin-top: -15%; */
     }
+
+  .fifthimg h1 {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 90%;
+    margin: 1.5rem auto;
+    font-size: 2rem;
+  }
+
+  .fifthimg p {
+    position: relative;
+    width: 80%;
+    margin: 0 auto 1.5rem;
+    padding: 0;
+    font-size: 0.95rem;
+    text-align: justify;
+    display: block;
+    box-sizing: border-box;
+    height: 500px;
+    overflow: auto;
+    margin-right: 20%;
+  }
+
+  .fifthimg img {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    display: block;
+    width: 60px;
+  }
   }
 
 
@@ -611,8 +650,7 @@ body {
   /* Image Sections Layout */
   .secondimg,
   .thirdimg,
-  .fourthimg,
-  .fifthimg {
+  .fourthimg{
     height: auto;
     padding: 2rem 0;
     position: relative;
@@ -681,16 +719,6 @@ body {
     font-size: 2rem;
   }
 
-  .fifthimg h1 {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 90%;
-    margin: 1.5rem auto;
-    font-size: 2rem;
-  }
-
   .secondimg p {
     position: relative;
     top: 0;
@@ -734,19 +762,7 @@ body {
     text-align: justify;
   }
 
-  .fifthimg p {
-    position: relative;
-    width: 80%;
-    margin: 0 auto 1.5rem;
-    padding: 0;
-    font-size: 0.95rem;
-    text-align: justify;
-    display: block;
-    box-sizing: border-box;
-    height: 500px;
-    overflow: auto;
-    margin-right: 20%;
-  }
+
 
   .secondimg a {
     position: relative;
@@ -768,15 +784,6 @@ body {
     margin: 1rem auto 2rem;
   }
 
-
-  .fifthimg img {
-    position: relative;
-    top: 0;
-    left: 0;
-    margin: 0 auto;
-    display: block;
-    width: 60px;
-  }
 }
 
 /* Tablet Adjustments */
