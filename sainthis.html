@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint History</title>
+    <link rel="stylesheet" href="sainthis.css">
+    <script src="index.js" defer></script>
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="logo">St. Francis De Sales</div>
+
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+      &#9776; <!-- Unicode Hamburger Icon -->
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="about.html" class="nav-link">About Us</a></li>
+      <li><a href="fathers.html" class="nav-link">Church Root</a></li>
+      <li><a href="contacts.html" class="nav-link">Contact Us</a></li>
+      <li><a href="sainthis.html" class="nav-link">Patron Saint</a></li>
+      <li><a href="family.html" class="nav-link">Parish Family</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #1e3c72;
+      --secondary-color: #2a5298;
+      --accent-color: #007BFF;
+      --text-color: #333;
+      --light-bg: #f8f9fa;
+      --white: #ffffff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* ==== FOOTER ==== */
+    .footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 3rem 1rem;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1300px;
+      margin: 0 auto;
+      gap: 3rem;
+    }
+
+    .footer-box {
+      flex: 1;
+      min-width: 220px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-contact p {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-row a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .contact-row a:hover {
+      opacity: 0.8;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    /* Back to Top Button */
+    #backToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 99;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    #backToTopBtn:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive */
+    body {
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="saint1">
+  <img class="saint1__bg" src="https://media.ascensionpress.com/wp-content/uploads/2023/09/saint-francis-de-sales-2.png" alt="Picture of St. Francis de Sales">
+  <div class="saint1__overlay"></div>
+  <div class="saint1__content">
+    <h1 class="saint1__heading">St. Francis De Sales</h1>
+        <p class="saint1__text">We are always happy to hear from you. Whether you have questions about our parish, wish to reach out to our priests, or would like to get involved in church activities, feel free to contact us using the details below. May God bless your visit and guide you closer to His love.</p>
+  </div>
+</div>
+
+<div class="saint2 is-visible">
+  <h2>St. Francis de Sales</h2>
+  <div class="content-wrapper">
+    <img src="images/francis.jpg" alt="St. Francis de Sales">
+    <p>
+St. Francis de Sales, born on August 21, 1567, in Thorens-Glières (now part of France), came from a noble family and was the eldest of six children. Though he studied law at the University of Padua to please his father, he experienced a deep spiritual awakening and chose to serve God instead of pursuing a legal career. Ordained a priest in 1593 despite his family's hopes for him to marry, he quickly gained a reputation for his gentle spirit, persuasive preaching, and commitment to helping people grow in faith. Appointed Bishop of Geneva in 1602 during the Protestant Reformation, he led many back to Catholicism with kindness and patience rather than force, earning him the title “Gentleman Saint.” He believed holiness was possible for everyone, regardless of their life situation—a belief reflected in his renowned book Introduction to the Devout Life (1609), which remains a spiritual classic. Alongside St. Jane Frances de Chantal, he co-founded the Order of the Visitation, promoting a humble and active spiritual life for women. Despite chronic illness, he tirelessly preached, wrote, and offered guidance through letters, emphasizing trust in God and the importance of daily devotion. He died on December 28, 1622, was canonized in 1665, and declared a Doctor of the Church in 1877. As the patron saint of writers, journalists, and the Catholic press, his legacy continues to inspire, especially in our Kattuwa Church parish, where his life of gentleness, faith, and service serves as a guiding example.
+    </p>
+  </div>
+</div>
+
+<div class="saintgallery is-visible">
+  <!-- Heading -->
+  <h2>St. Francis De Sales Gallery</h2>
+
+  <!-- Description Paragraph -->
+  <p>
+    St. Francis De Sales was known for his gentle spirit, deep faith, and unwavering commitment to guiding souls toward holiness.
+    His life and teachings continue to inspire countless believers around the world. This gallery showcases moments from his life,
+    works, and the legacy he left behind in art, devotion, and writings.
+  </p>
+
+  <!-- Image Grid Container -->
+  <div class="gallery-container">
+    <img src="images/saint.webp" alt="Picture of St. Francis De Sales"> 
+    <img src="images/saint1.webp" alt="Statue of St. Francis De Sales">
+    <img src="images/saint3.jpg" alt="Painting of St. Francis De Sales">
+    <img src="images/saint4.jpg" alt="Relic of St. Francis De Sales">
+  </div>
+</div>
+
+<script>
+  
+      document.addEventListener('DOMContentLoaded', () => {
+      // Contact1 Section (similar to about1)
+      const contact1Section = document.querySelector('.saint1');
+      if (contact1Section) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-inview');
+
+              // Parallax effect setup
+              const bg = entry.target.querySelector('.saint1__bg');
+              if (bg) {
+                window.addEventListener('scroll', () => {
+                  const scrollY = window.scrollY;
+                  bg.style.transform = `scale(1.05) translateY(${scrollY * 0.3}px)`;
+                });
+              }
+
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.2,
+          rootMargin: '200px 0px'
+        });
+        observer.observe(contact1Section);
+      }
+    });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+  const saintSection = document.querySelector('.saint1');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-inview');
+        // Optional: Unobserve after animation triggers
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  if (saintSection) {
+    observer.observe(saintSection);
+  }
+});
+
+
+// Add this if you want the animations to trigger on scroll
+document.addEventListener('DOMContentLoaded', function() {
+  const saintSection = document.querySelector('.saint2');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        // Optional: Unobserve after triggering
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  if (saintSection) {
+    // Remove is-visible class if it's in HTML
+    saintSection.classList.remove('is-visible');
+    observer.observe(saintSection);
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const gallery = document.querySelector('.saintgallery');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        // Optional: Unobserve after triggering
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  });
+
+  if (gallery) {
+    observer.observe(gallery);
+  }
+});
+
+const saintGallery = document.querySelector('.saintgallery');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  observer.observe(saintGallery);
+</script>
+    
+</body>
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- About -->
+    <div class="footer-box">
+      <img src="./images/logo.jpg" alt="Church Logo" class="footer-logo">
+      <p>"Give me a spirit for salvation. It is because of your love"</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-box footer-contact">
+      <h3>Contact Us</h3>
+      <p>123 Church Street, Kattuwa, Negombo, Sri Lanka</p>
+
+      <div class="contact-row">
+        Phone:
+        <a href="tel:+94123456789">+94 123 456 789</a>
+      </div>
+
+      <div class="contact-row">
+        Email:
+        <a href="mailto:info@stfranciskattuwa.org">info@stfranciskattuwa.org</a>
+      </div>
+
+      <p>Sunday Services: 9:00 AM & 11:00 AM</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-box footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="fathers.html">Church Leaders</a></li>
+        <li><a href="contacts.html">Contact Details</a></li>
+        <li><a href="sainthis.html">Patron Saint</a></li>
+        <li><a href="family.html">Parish Family</a></li>
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div class="footer-box footer-social">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1EWvriipvi/?mibextid=wwXIfr" target="_blank">
+          <img src="./images/fb.png" alt="Facebook">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; <span id="current-year">2025</span> Designed By Ceylon Innovation</p>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTopBtn" aria-label="Back to top">↑</button>
+
+</html>

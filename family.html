@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Parish Families</title>
+    <link rel="stylesheet" href="family.css">
+    <script src="index.js" defer></script>
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="logo">St. Francis De Sales</div>
+
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+      &#9776; <!-- Unicode Hamburger Icon -->
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="about.html" class="nav-link">About Us</a></li>
+      <li><a href="fathers.html" class="nav-link">Church Root</a></li>
+      <li><a href="contacts.html" class="nav-link">Contact Us</a></li>
+      <li><a href="sainthis.html" class="nav-link">Patron Saint</a></li>
+      <li><a href="family.html" class="nav-link">Parish Family</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #1e3c72;
+      --secondary-color: #2a5298;
+      --accent-color: #007BFF;
+      --text-color: #333;
+      --light-bg: #f8f9fa;
+      --white: #ffffff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* ==== FOOTER ==== */
+    .footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 3rem 1rem;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1300px;
+      margin: 0 auto;
+      gap: 3rem;
+    }
+
+    .footer-box {
+      flex: 1;
+      min-width: 220px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-contact p {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-row a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .contact-row a:hover {
+      opacity: 0.8;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    /* Back to Top Button */
+    #backToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 99;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    #backToTopBtn:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive */
+    body {
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="family1">
+  <img class="family1__bg" src="https://images.unsplash.com/photo-1740106987822-89f2e3fe51c2?q=80&w=2021&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="picture of cross">
+  <div class="family1__overlay"></div>
+  <div class="family1__content">
+    <h1 class="family1__heading">Community Members</h1>
+    <p class="family1__text">
+      Discover the vibrant tapestry of service at this church, where every generation answers God’s call with St. Francis de Sales’ gentle spirit. Here, wisdom and youthful zeal intertwine in ministries that nurture souls, uplift communities, and glorify the Lord.
+    </p>
+  </div>
+</div>
+
+<script>
+    // Family1 function
+   document.addEventListener('DOMContentLoaded', () => {
+  const familySection = document.querySelector('.family1');
+
+  // Intersection Observer for scroll trigger
+  if (familySection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-inview');
+          observer.unobserve(entry.target); // Stop observing after animation runs
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(familySection);
+  }
+
+  // Optional Parallax Effect on Background Image
+  const bgImage = document.querySelector('.family1__bg');
+  if (bgImage) {
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      // Apply smooth vertical movement
+      bgImage.style.transform = `scale(1.05) translateY(${scrollY * 0.2}px)`;
+    });
+  }
+});
+
+// family2 function
+document.addEventListener('DOMContentLoaded', () => {
+    const familySection = document.querySelector('.family2');
+    if (!familySection) return;
+
+    // Preload images function
+    function preloadImages() {
+        const images = familySection.querySelectorAll('.team-card img');
+        images.forEach(img => {
+            // Create new image element to force loading
+            const tempImg = new Image();
+            tempImg.src = img.src || img.getAttribute('data-src');
+            
+            // Add loaded class when image is ready
+            tempImg.onload = () => {
+                img.style.opacity = 1;
+                img.parentElement.classList.add('loaded');
+            };
+            
+            tempImg.onerror = () => {
+                // Fallback if image fails to load
+                img.src = 'https://via.placeholder.com/800x500?text=Image+Not+Found';
+                img.style.opacity = 1;
+            };
+        });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                
+                // Trigger image preloading
+                preloadImages();
+                
+                // Add animation delays for all cards
+                const cards = entry.target.querySelectorAll('.team-card');
+                cards.forEach((card, index) => {
+                    card.style.transitionDelay = `${0.1 + (index * 0.1)}s`;
+                });
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { 
+        threshold: 0.1,
+        rootMargin: '200px 0px' // Load when 200px away from viewport
+    });
+
+    observer.observe(familySection);
+});
+
+</script>
+
+
+<div class="family2" id="apostolic-services">
+    <div class="header-container">
+      <h1 class="main-heading">Apostolic Services Related to the Church</h1>
+      <p class="sub-heading">
+        Discover the various ministries and teams that serve our church community with dedication and faith.
+      </p>
+    </div>
+
+    <div class="teams-grid">
+      <div class="team-card">
+        <img src="./images/1.jpg" alt="Meesam Dharma Seva Sabha" onerror="this.src='https://via.placeholder.com/400x450?text=Meesam+Sabha'">
+        <h2>Meesam Dharma Seva Sabha</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/2.jpg" alt="Dhaham Teachers' Council" onerror="this.src='https://via.placeholder.com/400x450?text=Teachers+Council'">
+        <h2>Dhaham Teachers' Council</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/3.jpg" alt="Divine Heart Society" onerror="this.src='https://via.placeholder.com/400x450?text=Divine+Heart'">
+        <h2>Divine Heart Society</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/4.jpg" alt="Mary's Army" onerror="this.src='https://via.placeholder.com/400x450?text=Marys+Army'">
+        <h2>Mary's Army</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/5.jpg" alt="Choir" onerror="this.src='https://via.placeholder.com/400x450?text=Choir'">
+        <h2>Choir</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/6.jpg" alt="Youth Society" onerror="this.src='https://via.placeholder.com/400x450?text=Youth+Society'">
+        <h2>Youth Society</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/7.jpg" alt="Christian Awakening Society" onerror="this.src='https://via.placeholder.com/400x450?text=Awakening+Society'">
+        <h2>Christian Awakening Society</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/8.jpg" alt="Pilgrimage Committee" onerror="this.src='https://via.placeholder.com/400x450?text=Pilgrimage'">
+        <h2>Pilgrimage Committee</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/9.jpg" alt="St. Vincent de Paul Society" onerror="this.src='https://via.placeholder.com/400x450?text=St+Vincent'">
+        <h2>St. Vincent de Paul Society</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/10.jpg" alt="Rose Society" onerror="this.src='https://via.placeholder.com/400x450?text=Rose+Society'">
+        <h2>Rose Society</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/11.jpg" alt="Children of Pooja Assistant" onerror="this.src='https://via.placeholder.com/400x450?text=Pooja+Assistant'">
+        <h2>Children of Pooja Assistant</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/12.jpg" alt="St. Joseph's Committee" onerror="this.src='https://via.placeholder.com/400x450?text=St+Joseph'">
+        <h2>St. Joseph's Committee</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/13.jpg" alt="Our Lady of Lourdes Committee" onerror="this.src='https://via.placeholder.com/400x450?text=Our+Lady'">
+        <h2>Our Lady of Lourdes Committee</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/14.jpg" alt="Family Services Committee" onerror="this.src='https://via.placeholder.com/400x450?text=Family+Services'">
+        <h2>Family Services Committee</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/15.jpg" alt="Young Christian Student Movement" onerror="this.src='https://via.placeholder.com/400x450?text=YCS+Movement'">
+        <h2>Young Christian Student Movement</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/16.jpg" alt="Missionary Children's Club" onerror="this.src='https://via.placeholder.com/400x450?text=Missionary+Kids'">
+        <h2>Missionary Children's Club</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/17.jpg" alt="Sunday School Prefects Committee" onerror="this.src='https://via.placeholder.com/400x450?text=Sunday+School'">
+        <h2>Sunday School Prefects Committee</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/18.jpg" alt="Breakfast under the tree group" onerror="this.src='https://via.placeholder.com/400x450?text=Breakfast+Group'">
+        <h2>Breakfast under the Tree Group</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/19.jpg" alt="Pooja Goods Sales Team" onerror="this.src='https://via.placeholder.com/400x450?text=Pooja+Sales'">
+        <h2>Pooja Goods Sales Team</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="./images/20.jpg" alt="Jubilee Night Committee" onerror="this.src='https://via.placeholder.com/400x450?text=Jubilee+Night'">
+        <h2>Jubilee Night Committee</h2>
+      </div>
+    </div>
+</div>
+
+    
+</body>
+
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- About -->
+    <div class="footer-box">
+      <img src="./images/logo.jpg" alt="Church Logo" class="footer-logo">
+      <p>"Give me a spirit for salvation. It is because of your love"</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-box footer-contact">
+      <h3>Contact Us</h3>
+      <p>123 Church Street, Kattuwa, Negombo, Sri Lanka</p>
+
+      <div class="contact-row">
+        Phone:
+        <a href="tel:+94123456789">+94 123 456 789</a>
+      </div>
+
+      <div class="contact-row">
+        Email:
+        <a href="mailto:info@stfranciskattuwa.org">info@stfranciskattuwa.org</a>
+      </div>
+
+      <p>Sunday Services: 9:00 AM & 11:00 AM</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-box footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="fathers.html">Church Leaders</a></li>
+        <li><a href="contacts.html">Contact Details</a></li>
+        <li><a href="sainthis.html">Patron Saint</a></li>
+        <li><a href="family.html">Parish Family</a></li>
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div class="footer-box footer-social">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1EWvriipvi/?mibextid=wwXIfr" target="_blank">
+          <img src="./images/fb.png" alt="Facebook">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; <span id="current-year">2025</span> Designed By Ceylon Innovation</p>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTopBtn" aria-label="Back to top">↑</button>
+
+</html>

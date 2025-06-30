@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Church</title>
+    <link rel="stylesheet" href="about.css">
+    <script src="index.js" defer></script>
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="logo">St. Francis De Sales</div>
+
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+      &#9776; <!-- Unicode Hamburger Icon -->
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="about.html" class="nav-link">About Us</a></li>
+      <li><a href="fathers.html" class="nav-link">Church Root</a></li>
+      <li><a href="contacts.html" class="nav-link">Contact Us</a></li>
+      <li><a href="sainthis.html" class="nav-link">Patron Saint</a></li>
+      <li><a href="family.html" class="nav-link">Parish Family</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #1e3c72;
+      --secondary-color: #2a5298;
+      --accent-color: #007BFF;
+      --text-color: #333;
+      --light-bg: #f8f9fa;
+      --white: #ffffff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* ==== FOOTER ==== */
+    .footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 3rem 1rem;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1300px;
+      margin: 0 auto;
+      gap: 3rem;
+    }
+
+    .footer-box {
+      flex: 1;
+      min-width: 220px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-contact p {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-row a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .contact-row a:hover {
+      opacity: 0.8;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    /* Back to Top Button */
+    #backToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 99;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    #backToTopBtn:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive */
+    body {
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="about1">
+  <img class="about1__bg" src="images/about5.jpg" alt="About Church Background">
+  <div class="about1__overlay"></div>
+  <div class="about1__content">
+    <h1 class="about1__heading">About Our Church</h1>
+    <p class="about1__text">
+      Welcome to our church community, where faith, fellowship, and service come together to honor God and uplift one another. 
+    </p>
+  </div>
+</div>
+
+    <div class="about2">
+        <h1>History Of ST. Francis De Sales Church from 1923 to 1998</h1>
+        
+        <p>The St. Francis De Sales Church in Kattuwa, Negombo, has been a spiritiual hub for over 175 years. The original Land was accuired in 1846, with the current site gifted in 1902 following a miraculous resolution of a land dispute. The present church was built in 1911 under Rev. Fr. Brault, with significant support from Frs. Albaron, Britton, and Nissan. Intially known as the "Stone Church", it was complted through the efforts of Fr. Nissan and the loacl Community.
+        Tradition such as the March Novena and Feast of St. Joseph, the Devamatha Novena, and the flag tree ritual have enriched parish life. Community contributions led to the expansion of facilities including a Mission House, dining hall, and meeting spaces. Rev. Julius Wijesuriya's introduction of Gnan Upadesha classes and a 15-day Dharma retreat in 197o marked a spritual revival, honored by a large Holy Cross Donation. Clergy from the Dblate of Mary Immacolate served until 1976, followed by diocesan preists.
+        </p>
+
+        <p>The 75th Jubilee (1998 - 1999) brought major renovations, a new Dhamma School, and spiritual programs. Outreach included publishing a booklet on St. Francis De Sales and distributing Bibles with German mission support. In 2006, the church became independent, with Rev. Fr. Jude Samantha as its first Parish Preists. Further development under Rev. Fr. Dinesh Priyashantha and Fr. Manjula Niroshan included meditation programs, infrastructure improvements, and cultural events. Dedicated clergy, Nuns, and lay leaders have driven education and youth activities. A new Damma School building (1999), fencing, and restored premises enhanced the site, funded by local and international support. Youth Society intiatives, including an annual fair, have helped fund church projects. Under Rev. Fr. Prasad Pannamperuma, community programs like "Breakfast under the Tree" and interactive Dhamma School events revived parish engagement.</p>
+    </div>
+
+<div class="about3">
+  <h1>A Journey Through Faith: The Living History of St. Francis de Soles Church – From Foundation to Present</h1>
+  <p>Step into the inspiring story of our beloved parish, where faith, tradition, and community intertwine across generations. From its humble beginnings to its vibrant present, St. Francis de Sales Church has been a beacon of hope, worship, and fellowship. Here, we celebrate the enduring legacy of our patron saint, the dedication of our clergy, and the unwavering spirit of our parish family. Explore our rich heritage, meet the faithful who shaped our journey, and discover how our shared devotion continues to light the path forward. Welcome we’re glad you’re here!</p>
+  <div class="images">
+    <img src="images/about1.jpg" alt="">
+    <img src="images/about2.jpg" alt="">
+    <img src="images/about3.jpg" alt="">
+    <img src="images/about4.jpg" alt="">
+    <img src="images/about5.jpg" alt="">
+    <img src="images/about6.jpg" alt="">
+    <img src="images/new6.jpg" alt="">
+    <img src="images/new1.jpg" alt="">
+    <img src="images/about9.jpg" alt="">
+    <img src="images/about10.jpg" alt="">
+    <img src="images/about11.jpg" alt="">
+    <img src="images/about12.jpg" alt="">
+    <img src="images/about13.jpg" alt="">
+    <img src="images/about14.jpg" alt="">
+    <img src="images/about15.jpg" alt="">
+    <img src="images/about16.jpg" alt="">
+
+  </div>
+</div>
+
+<div class="about4">
+  <h1>The annual feast of St. Francis de Sales Church</h1>
+  <p>The annual feast of St. Francis de Sales Church in Kattuwa, Negombo, is celebrated on January 24th. This date marks the memorial of St. Francis de Sales, a significant figure in the Catholic Church, and is observed by the Kattuwa parish. </p>
+  <div class="feast">
+    <img src="images/about17.jpg" alt="">
+    <img src="images/about18.jpg" alt="">
+    <img src="images/about19.jpg" alt="">
+    <img src="images/about20.jpg" alt="">
+    <img src="images/about23.jpg" alt="">
+    <img src="images/about24.jpg" alt="">
+    <img src="images/about25.jpg" alt="">
+    <img src="images/about27.jpg" alt="">
+  </div>
+</div>
+
+<div class="about5">
+  <h1>Our Church Theme</h1>
+  <p>"God, because of your love, you have given me a spirit for salvation."</p>
+</div>
+
+<script>
+
+// About2 function
+document.addEventListener('DOMContentLoaded', () => {
+    const familySection = document.querySelector('.about2');
+    if (!familySection) return;
+
+    // Preload images function
+    function preloadImages() {
+        const images = familySection.querySelectorAll('.team-card img');
+        images.forEach(img => {
+            const tempImg = new Image();
+            tempImg.src = img.src || img.getAttribute('data-src');
+            
+            tempImg.onload = () => {
+                img.style.opacity = 1;
+                img.parentElement.classList.add('loaded');
+            };
+            
+            tempImg.onerror = () => {
+                img.src = 'https://via.placeholder.com/800x500?text=Image+Not+Found';
+                img.style.opacity = 1;
+            };
+        });
+    }
+
+    const observerAbout2 = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                preloadImages();
+                
+                const cards = entry.target.querySelectorAll('.team-card');
+                cards.forEach((card, index) => {
+                    card.style.transitionDelay = `${0.1 + (index * 0.1)}s`;
+                });
+                
+                observerAbout2.unobserve(entry.target);
+            }
+        });
+    }, { 
+        threshold: 0.1,
+        rootMargin: '200px 0px'
+    });
+
+    observerAbout2.observe(familySection);
+});
+
+// About1 function
+document.addEventListener('DOMContentLoaded', () => {
+  const aboutSection = document.querySelector('.about1');
+  
+  const observerAbout1 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-inview');
+        observerAbout1.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  observerAbout1.observe(aboutSection);
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const bg = document.querySelector('.about1__bg');
+    if (bg) {
+      bg.style.transform = `scale(1.05) translateY(${scrollY * 0.3}px)`;
+    }
+  });
+});
+
+// About3 function
+document.addEventListener('DOMContentLoaded', () => {
+  const about3Section = document.querySelector('.about3');
+  if (!about3Section) return;
+  
+  const observerAbout3 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observerAbout3.observe(about3Section);
+});
+
+// About4 function
+document.addEventListener('DOMContentLoaded', () => {
+  const about4Section = document.querySelector('.about4');
+  if (!about4Section) return;
+  
+  const observerAbout4 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observerAbout4.observe(about4Section);
+});
+
+ </script>
+    
+</body>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- About -->
+    <div class="footer-box">
+      <img src="./images/logo.jpg" alt="Church Logo" class="footer-logo">
+      <p>"Give me a spirit for salvation. It is because of your love"</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-box footer-contact">
+      <h3>Contact Us</h3>
+      <p>123 Church Street, Kattuwa, Negombo, Sri Lanka</p>
+
+      <div class="contact-row">
+        Phone:
+        <a href="tel:+94123456789">+94 123 456 789</a>
+      </div>
+
+      <div class="contact-row">
+        Email:
+        <a href="mailto:info@stfranciskattuwa.org">info@stfranciskattuwa.org</a>
+      </div>
+
+      <p>Sunday Services: 9:00 AM & 11:00 AM</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-box footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="fathers.html">Church Leaders</a></li>
+        <li><a href="contacts.html">Contact Details</a></li>
+        <li><a href="sainthis.html">Patron Saint</a></li>
+        <li><a href="family.html">Parish Family</a></li>
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div class="footer-box footer-social">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1EWvriipvi/?mibextid=wwXIfr" target="_blank">
+          <img src="./images/fb.png" alt="Facebook">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; <span id="current-year">2025</span> Designed By Ceylon Innovation</p>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTopBtn" aria-label="Back to top">↑</button>
+
+</html>

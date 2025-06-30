@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priests Details</title>
+    <link rel="stylesheet" href="fathers.css">
+    <script src="index.js" defer></script>
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="logo">St. Francis De Sales</div>
+
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+      &#9776; <!-- Unicode Hamburger Icon -->
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="about.html" class="nav-link">About Us</a></li>
+      <li><a href="fathers.html" class="nav-link">Church Root</a></li>
+      <li><a href="contacts.html" class="nav-link">Contact Us</a></li>
+      <li><a href="sainthis.html" class="nav-link">Patron Saint</a></li>
+      <li><a href="family.html" class="nav-link">Parish Family</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #1e3c72;
+      --secondary-color: #2a5298;
+      --accent-color: #007BFF;
+      --text-color: #333;
+      --light-bg: #f8f9fa;
+      --white: #ffffff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* ==== FOOTER ==== */
+    .footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 3rem 1rem;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1300px;
+      margin: 0 auto;
+      gap: 3rem;
+    }
+
+    .footer-box {
+      flex: 1;
+      min-width: 220px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-contact p {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-row a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .contact-row a:hover {
+      opacity: 0.8;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    /* Back to Top Button */
+    #backToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 99;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    #backToTopBtn:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive */
+    body {
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="father1">
+  <img class="father1__bg" src="images/fa1.jpg" alt="Picture of Fathers">
+  <div class="father1__overlay"></div>
+  <div class="father1__content">
+    <h1 class="father1__heading">Priests Who Shaped Us</h1>
+    <p class="father1__text">This page serves as a tribute and resource to honor all the priests who have served our parish throughout the years. Through this website, you can search and learn more about the spiritual leaders who have guided our community, celebrated the sacraments among us.</p>
+  </div>
+</div>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Contact1 Section (similar to about1)
+      const contact1Section = document.querySelector('.father1');
+      if (contact1Section) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-inview');
+
+              // Parallax effect setup
+              const bg = entry.target.querySelector('.father1__bg');
+              if (bg) {
+                window.addEventListener('scroll', () => {
+                  const scrollY = window.scrollY;
+                  bg.style.transform = `scale(1.05) translateY(${scrollY * 0.3}px)`;
+                });
+              }
+
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.2,
+          rootMargin: '200px 0px'
+        });
+        observer.observe(contact1Section);
+      }
+    });
+
+const fatherSection = document.querySelector('.father1');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-inview');
+    }
+  });
+}, { threshold: 0.1 });
+
+observer.observe(fatherSection);
+</script>
+
+
+<div class="father2">
+  <h1>Fathers who Served in the Kattuwa church</h1>
+  <p>
+This section honors the devoted priests who faithfully served the Kattuwa Church. Their spiritual journey began in service to the parish, where they nurtured the faith of the community, celebrated the sacraments, and lived as shepherds among the people. Eventually, they chose the path of consecrated life — embracing prayer, simplicity, and obedience in pursuit of a closer union with God. We remember their contributions with gratitude and continue to pray for their peace and holiness.</p>
+<div>
+<ul>
+  <li>1921 – 1926: Rev. Fr. F. L. Britton O.M.I</li>
+  <li>1926 – 1933: Rev. Fr. H. P. Maus O.M.I</li>
+  <li>1933 – 1936: Rev. Fr. Mathias O.M.I</li>
+  <li>1936 – 1940: Rev. Fr. J. Tanter O.M.I</li>
+  <li>1940 – 1947: Rev. Fr. H. Nissan O.M.I</li>
+  <li>1947 – 1948: Rev. Fr. M. Antony Fernando O.M.I</li>
+  <li>1948 – 1956: Rev. Fr. Patrick M. Fernando O.M.I</li>
+  <li>1956 – 1962: Rev. M. Father Anthony Fernando O.M.I</li>
+  <li>1962 – 1963: Rev. M. Father Mathew O.M.I</li>
+  <li>1963 – 1967: Rev. Father Joseph Perera O.M.I</li>
+  <li>1967 – 1968: Rev. Father Charles Senthilavel O.M.I</li>
+  <li>1968 – 1969: Rev. Father Patrick Fernando O.M.I</li>
+  <li>1969 – 1972: Rev. Father Anthony Cyril O.M.I</li>
+  <li>1972 – 1974: Rev. Father Luigi Gonzaga O.M.I</li>
+  <li>1974 – 1976: Rev. Father Julius Wijesuriya O.M.I</li>
+  <li>1976 – 1987: Rev. Father Edward Ravel O.M.I</li>
+  <li>1987 – 1990: Rev. Father George Bernard Fernando O.M.I</li>
+  <li>1990 – 1992: Reverend Father Leander Fernando</li>
+  <li>1992 – 1998: Reverend Father Nihal Perera</li>
+  <li>1993 – 1996: Reverend Father Wilfred Pintu</li>
+  <li>1996 – 1998: Reverend Father Cecil Joy Perera</li>
+
+  <li>1998 – 2002: Rev. Father Julius Wijesuriya O.M.I</li>
+  <li>2022 – 2008: Rev. Father Edward Ravel O.M.I</li>
+  <li>2008 – 2012: Rev. Father George Bernard Fernando O.M.I</li>
+  <li>2012 – 2014: Reverend Father Leander Fernando</li>
+  <li>2014 – 2019: Reverend Father Nihal Perera</li>
+  <li>2019 – 2024: Reverend Father Wilfred Pintu</li>
+  <li>2024 to date: Reverend Father Cecil Joy Perera</li>
+</ul>
+</div>
+</div>
+
+<div class="all1">
+  <div class="intro">
+    <h1>Fathers of Meesam Workers After the Creation of the Kattuwa Meesama</h1>
+  </div>
+  <div class="card-container">
+    <div class="detailsimg">
+      <div class="image-box">
+        <img src="images/fa2.jpg" alt="Rev. Jude Samantha Fernandopulle">
+      </div>
+      <div class="description-box">
+        <h2>Rev. Jude Samantha Fernandopulle</h2>
+        <ul>
+          <li>Date of Ordination: 1993.07.31</li>
+          <li>Period of Service: 1998.09.02 to 2002.10.05</li>
+          <li>Current Position: Father Meesam, Aluthkade Meesam</li>
+        </ul>
+      </div>
+    </div>
+    <div class="detailsimg reverse">
+      <div class="image-box">
+        <img src="images/fa3.jpg" alt="Rev. Father Prassad Ponnamperuma">
+      </div>
+      <div class="description-box">
+        <h2>Rev. Father Prassad Ponnamperuma</h2>
+        <ul>
+          <li>Date of Ordination: 1992.07.24</li>
+          <li>Period of Service: 2002.10.06 to 2008.02.09</li>
+          <li>Current Position: Pastor, Suwa Asiri Church, Thewatta</li>
+        </ul>
+      </div>
+    </div>
+    <div class="detailsimg">
+      <div class="image-box">
+        <img src="images/fa4.jpg" alt="Rev. Fr. Dinesh Priyashantha">
+      </div>
+      <div class="description-box">
+        <h2>Rev. Fr. Dinesh Priyashantha</h2>
+        <ul>
+          <li>Date of Ordination: 1999.09.48</li>
+          <li>Period of Service: 2008.02.10 to 2012.06.22</li>
+          <li>Current Position: Father Messama Sevaka, St. Philip Geri Muni Church, Kalmulla, Kalutara</li>
+        </ul>
+      </div>
+    </div>
+    <div class="detailsimg reverse">
+      <div class="image-box">
+        <img src="images/fa5.jpg" alt="Rev. Fr. Ruwan Eid Liyanage">
+      </div>
+      <div class="description-box">
+        <h2>Rev. Fr. Ruwan Eid Liyanage</h2>
+        <ul>
+          <li>Date of Ordination: 2003.09.13</li>
+          <li>Period of Service: 2012.06.23 to 2014.05.25</li>
+          <li>Current Position: Meesama Servant, St. Anthony's Church, Kongodamulla</li>
+        </ul>
+      </div>
+    </div>
+    <div class="detailsimg">
+      <div class="image-box">
+        <img src="images/fa6.jpg" alt="Rev. Fr. Manjula Niroshan">
+      </div>
+      <div class="description-box">
+        <h2>Rev. Fr. Manjula Niroshan</h2>
+        <ul>
+          <li>Date of Ordination: 2006.01.12</li>
+          <li>Period of Service: 2014.05.25 to 2019.06.16</li>
+          <li>Current Position: Meesama Servant, St. Sebastian's Church, Ktuwapitiya</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<br><br><br>
+
+
+<div class="all2">
+  <div class="intro2">
+    <h1>The Priests who served as assistants to the Kattuwa Meesam</h1>
+  </div>
+  <div class="card-container2">
+    <!-- Section 1: Image Left -->
+    <div class="detailsimg2 left">
+      <div class="image-box2">
+        <img src="images/fa7.jpg" alt="Rev. Fr. Jude Suresh">
+      </div>
+      <div class="description-box2">
+        <h2>Rev. Fr. Jude Suresh</h2>
+        <ul>
+          <li>Date of Ordination: 2010.04.24</li>
+          <li>Period of Service: 2012.06.23 to 2013.04.21</li>
+          <li>Current Place of work and position: Preparing to go abroad</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Section 2: Image Right -->
+    <div class="detailsimg2 right">
+      <div class="image-box2">
+        <img src="images/fa8.jpg" alt="Rev. Father Mahesh Krishantha">
+      </div>
+      <div class="description-box2">
+        <h2>Rev. Father Mahesh Krishantha</h2>
+        <ul>
+          <li>Date of Ordination: 2010.04.24</li>
+          <li>Period of Service: 2013.05.05 to 2014.05.25</li>
+          <li>Current Place of work and position: Father Meesam Sevaka, St. Anthony's Church, Kapumgoda</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Section 3: Image Left -->
+    <div class="detailsimg2 left">
+      <div class="image-box2">
+        <img src="images/fa9.jpg" alt="Rev. W. D. Jude Heshan Sachitra">
+      </div>
+      <div class="description-box2">
+        <h2>Rev. W. D. Jude Heshan Sachitra</h2>
+        <ul>
+          <li>Date of Ordination: 2015.04.18</li>
+          <li>Period of Service: 2016.05.01 to 2020.06.13</li>
+          <li>Current Place of work and position: Deputy Principal, Gonsalves College, Pamunugama</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<br><br><br>
+
+
+<div class="all3">
+  <div class="intro3">
+    <h1>The Sons of Priests born from the Kattuwa Sangha</h1>
+  </div>
+
+  <div class="card-container3">
+
+    <div class="detailsimg3 left">
+      <div class="image-box3">
+        <img src="images/fa10o.jpg" alt="Rev. Fr. Thomas Parris">
+      </div>
+      <div class="text-box3">
+        <h2>Rev. Fr. Thomas Parris</h2>
+        <p>Born on 24 June 1949 in Kattuwa and ordained as a priest on 15 November 1980 at St. Anne's Church, Palathuraya. He served as the Senior Father of the Congregation of the 'Nazareth' Presbyterian Fathers, Wennappuwa, and contributed extensively as a teacher and spiritual guide. He passed away peacefully on April 5, 2022.</p>
+      </div>
+    </div>
+
+    <div class="detailsimg3 right">
+      <div class="image-box3">
+        <img src="images/fa10.jpg" alt="Rev. Fr. Anthony Basil Gamini Silva">
+      </div>
+      <div class="text-box3">
+        <h2>Rev. Fr. Anthony Basil Gamini Silva (Nirmala Maria Sect)</h2>
+        <p>Also born on 24 June 1949 and ordained on 15 November 1980. He served in several parishes and seminaries including Ampitiya and Nochchiyagama. He contributed significantly to the spiritual education sector until his passing on April 5, 2022.</p>
+      </div>
+    </div>
+
+    <div class="detailsimg3 left">
+      <div class="image-box3">
+        <img src="images/fa15.jpg" alt="Rev. Fr. Andrew Shelton Welikadarachi">
+      </div>
+      <div class="text-box3">
+        <h2>Rev. Fr. Andrew Shelton Welikadarachi (Colombo Diocese)</h2>
+        <p>Born on 11 May 1955 and ordained on 24 July 1982. He served in Mattakkuliya and was a lecturer and Vice-Rector at the National Theological Seminary after his theological studies in Rome. Currently serves as Dehiwala Meesam Sevaka Father.</p>
+      </div>
+    </div>
+
+    <div class="detailsimg3 right">
+      <div class="image-box3">
+        <img src="images/fa14.jpg" alt="Rev. Fr. Rohan Perera">
+      </div>
+      <div class="text-box3">
+        <h2>Rev. Fr. Rohan Perera (Sect of the Divine Savior)</h2>
+        <p>Born on 30 October 1957, ordained in 1985, and has served in Melsiripura, Kekirawa, and Thimbirigasyaya. After higher education abroad, he became a deacon in several congregations. Currently serves as parish priest in Hewadivela.</p>
+      </div>
+    </div>
+
+    <div class="detailsimg3 left">
+      <div class="image-box3">
+        <img src="images/fa13.jpg" alt="Rev. Fr. Dunstan Piyatissa Welikadarachi">
+      </div>
+      <div class="text-box3">
+        <h2>Rev. Fr. Dunstan Piyatissa Welikadarachi (Nirmala Maria Nikaya)</h2>
+        <p>Born on 4 March 1964, ordained on 3 August 1991. Served in Solewewa, Modara, Wellawaya, and Hambantota. Educated in Rome and the Philippines, currently serves at Our Lady of the Assumption Church, Maradana.</p>
+      </div>
+    </div>
+
+    <div class="detailsimg3 right">
+      <div class="image-box3">
+        <img src="images/fa12.jpg" alt="Rev. Fr. Chanaka Prabath Welikadarachi">
+      </div>
+      <div class="text-box3">
+        <h2>Rev. Fr. Chanaka Prabath Welikadarachi (Colombo Diocese)</h2>
+        <p>Born on 14 April 1982 and ordained on 20 April 2013. He has served in Nayakakanda, Kalamulla, and Pitipana, and now serves as the Meesam Servant Father of Ekala New Meesam.</p>
+      </div>
+    </div>
+
+    <div class="detailsimg3 left">
+      <div class="image-box3">
+        <img src="images/fa11.jpg" alt="Rev. Fr. Asiri Devthilina Costa">
+      </div>
+      <div class="text-box3">
+        <h2>Rev. Fr. Asiri Devthilina Costa (Colombo Diocese)</h2>
+        <p>Born on 12 November 1992 and ordained on 6 June 2021. Currently serves as Assistant Father and the YCS Coordinator Father for the East Negombo District.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<br><br>
+
+
+<div class="all4">
+  <div class="intro4">
+    <h1>The Nuns who emerged from the Kattuwa Sangha</h1>
+  </div>
+  <div class="grid-container4">
+    <div class="detailsimg4">
+      <div class="image-box4">
+        <img src="images/sis1.jpg" alt="Rev. Jude Samantha Fernandopulle">
+      </div>
+      <div class="text-box4">
+        <h2>Venerable Sister Regina Paris</h2>
+        <p>She was ordained as a nun. Born on 29.12.1913 in Palagathuraya village, Marawila, Sri Lanka, she served as the Mother Superior of the hostel and Wennappuwa monastery on 1935.09.08. She passed away on 27.09.2007. Hon. Milanthi Jayawardena Kana</p>
+      </div>
+    </div>
+    <div class="detailsimg4">
+      <div class="image-box4">
+        <img src="images/sis2.jpg" alt="Rev. Jude Samantha Fernandopulle">
+      </div>
+      <div class="text-box4">
+        <h2>Venerable Sister Milanthi Jayawardena</h2>
+        <p>Born on 25.41.1978 in Kattuwa, she was ordained as a nun in the Order of the Little Sisters of the Poor on 31.07.2005. She served as a missionary in Australia and France from 2005 to 2022 and is currently serving in India.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="all5">
+  <div class="intro5">
+    <h1>The Annavis who served in the Kattuwa Sangha</h1>
+  </div>
+  <div class="grid-container5">
+    <div class="detailsimg5">
+      <img src="images/anna1.jpg" alt="Seeman Rathnasekara">
+      <h2>Seeman Rathnasekara</h2>
+    </div>
+    <div class="detailsimg5">
+      <img src="images/anna2.jpg" alt="T. Pabian Fernando">
+      <h2>T. Pabian Fernando</h2>
+    </div>
+    <div class="detailsimg5">
+      <img src="images/anna3.jpg" alt="N. Francis Fernando">
+      <h2>N. Francis Fernando</h2>
+    </div>
+    <div class="detailsimg5">
+      <img src="images/anna4.jpg" alt="Francis Wickramanayake">
+      <h2>Francis Wickramanayake</h2>
+    </div>
+    <div class="detailsimg5">
+      <img src="images/anna5.jpg" alt="George Wickramanayake">
+      <h2>George Wickramanayake</h2>
+    </div>
+    <div class="detailsimg5">
+      <img src="images/anna6.jpg" alt="Mahipala Mudalige's Skriyon Paaris">
+      <h2>Mahipala Mudalige's Skriyon Paaris</h2>
+    </div>
+    <div class="detailsimg5">
+      <img src="images/anna7.jpg" alt="Mahipala Mudalige's Aloysius Paaris">
+      <h2>Mahipala Mudalige's Aloysius Paaris</h2>
+    </div>
+    <div class="detailsimg5">
+      <img src="images/anna8.jpg" alt="Lankahaluge Stannis Laus Fernando">
+      <h2>Lankahaluge Stannis Laus Fernando</h2>
+    </div>
+    <div class="detailsimg5">
+      <img src="images/anna9.jpg" alt="Lankahaluge Leslie Paul Fernando">
+      <h2>Lankahaluge Leslie Paul Fernando</h2>
+    </div>
+  </div>
+</div>
+<br>
+
+
+
+<div class="all6">
+  <div class="intro6">
+    <h1>Sankranthiyans Who served in the Kattuwa Sangha</h1>
+  </div>
+  <div class="grid-container6">
+    <div class="detailsimg6">
+      <img src="images/sun1.jpg" alt="Mr. K. Thomas Fernando">
+      <h2>Mr. K. Thomas Fernando</h2>
+    </div>
+    <div class="detailsimg6">
+      <img src="images/sun2.jpg" alt="Ms. Jeanette Fernando">
+      <h2>Ms. Jeanette Fernando</h2>
+    </div>
+    <div class="detailsimg6">
+      <img src="images/sun3.jpg" alt="Mr. Pankrasi Paaris">
+      <h2>Mr. Pankrasi Paaris</h2>
+    </div>
+    
+    <!-- Last two boxes in centered row -->
+    <div class="detailsimg6 centered-box">
+      <img src="images/sun4.jpg" alt="Mr. Ajith Samarakkody">
+      <h2>Mr. Ajith Samarakkody</h2>
+    </div>
+    <div class="detailsimg6 centered-box">
+      <img src="images/sun5.jpg" alt="Mr. Roger Dayananndha (Current)">
+      <h2>Mr. Roger Dayananndha (Current)</h2>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="all7">
+  <div class="intro7">
+    <h1>The Secretaries of the Dharmaseva Sabha who served in the Kattuwa Sangha</h1>
+  </div>
+  <div class="grid-container7">
+    <div class="detailsimg7">
+      <img src="images/lek1.jpg" alt="John Isaac Leo Maddumage">
+      <h2>Mr. John Isaac Leo Maddumage</h2>
+    </div>
+    <div class="detailsimg7">
+      <img src="images/lek2.jpg" alt="Mr. Theodore Appuhami">
+      <h2>Mr. Theodore Appuhami</h2>
+    </div>
+    <div class="detailsimg7">
+      <img src="images/lek3.jpg" alt="Mr. Anthony Jayakody">
+      <h2>Mr. Anthony Jayakody</h2>
+    </div>
+    <div class="detailsimg7 centered-box">
+      <img src="images/lek4.jpg" alt="Mr. Sirimevan Fernando (Current)">
+      <h2>Mr. Sirimevan Fernando (Current)</h2>
+    </div>
+  </div>
+</div>
+
+</body>
+
+
+
+</body>
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- About -->
+    <div class="footer-box">
+      <img src="./images/logo.jpg" alt="Church Logo" class="footer-logo">
+      <p>"Give me a spirit for salvation. It is because of your love"</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-box footer-contact">
+      <h3>Contact Us</h3>
+      <p>123 Church Street, Kattuwa, Negombo, Sri Lanka</p>
+
+      <div class="contact-row">
+        Phone:
+        <a href="tel:+94123456789">+94 123 456 789</a>
+      </div>
+
+      <div class="contact-row">
+        Email:
+        <a href="mailto:info@stfranciskattuwa.org">info@stfranciskattuwa.org</a>
+      </div>
+
+      <p>Sunday Services: 9:00 AM & 11:00 AM</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-box footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="fathers.html">Church Leaders</a></li>
+        <li><a href="contacts.html">Contact Details</a></li>
+        <li><a href="sainthis.html">Patron Saint</a></li>
+        <li><a href="family.html">Parish Family</a></li>
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div class="footer-box footer-social">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1EWvriipvi/?mibextid=wwXIfr" target="_blank">
+          <img src="./images/fb.png" alt="Facebook">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; <span id="current-year">2025</span> Designed By Ceylon Innovation</p>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTopBtn" aria-label="Back to top">↑</button>
+
+</html>

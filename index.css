@@ -1,0 +1,803 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('church-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  scroll-behavior: smooth;
+}
+
+/* Church Navbar - Calm and Professional with Right-Aligned Links */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nav-links li a {
+  color: #333;
+  text-decoration: none;
+  padding: 1rem 0;
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+  position: relative;
+  display: block;
+}
+
+.nav-links li a:hover {
+  color: #5a6a7a;
+}
+
+.nav-links li a.active {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.nav-links li a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #8e9eab;
+  animation: underline-fade 0.3s ease-out;
+}
+
+@keyframes underline-fade {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.nav-links li.donate a {
+  color: #fff;
+  background-color: #5a6a7a;
+  padding: 0.6rem 1.5rem;
+  border-radius: 3px;
+  margin-left: 1rem;
+}
+
+.nav-links li.donate a:hover {
+  background-color: #4a5a6a;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 1.5rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 80px);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a {
+    font-size: 1.2rem;
+    padding: 0.8rem 0;
+  }
+}
+
+/* Main image container */
+.mainimg {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  max-height: 650px;
+  min-height: 500px;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.mainimg img {
+  position: absolute;
+  top: 0;
+  left: 0; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(90%);
+}
+
+#hero-heading{
+  position: absolute;
+  left: 50%;
+  transform: translate3d(-50%, -100px, 0);
+  opacity: 0;
+  color: white;
+  z-index: 2;
+  will-change: transform, opacity;
+  animation: fadeInSlideUp 8s ease-in-out infinite;
+  pointer-events: none;
+  user-select: none;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(80, 80, 80, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 4px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+#hero-paragraph {
+  position: absolute;
+  left: 50%;
+  transform: translate3d(-50%, -100px, 0);
+  opacity: 0;
+  color: white;
+  z-index: 2;
+  will-change: transform, opacity;
+  animation: fadeInSlideUp 8s ease-in-out infinite;
+  pointer-events: none;
+  user-select: none;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(80, 80, 80, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 4px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+#hero-heading {
+  top: 25%;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  margin-top: auto;
+}
+
+#hero-paragraph {
+  top: calc(31% + 7rem);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  font-weight: 300;
+  /* display: none; */
+  text-align: center;
+}
+
+/* Responsive adjustments - heading moves down */
+@media (max-width: 768px) {
+  #hero-heading {
+    font-size: clamp(1rem, 5vw, 3rem);
+    transform: translate3d(-50%, 0, 0);
+    width: 85%;
+    padding: 1rem;
+    margin-bottom: 15rem;
+ } 
+  #hero-paragraph {
+    animation: none; 
+    transform: translateX(-50%);
+    opacity: 1;
+    font-size: 0.89rem; 
+    padding: 1rem; 
+    width: 85%;
+    background-color: rgba(80, 80, 80, 0.6);
+  }
+}
+
+
+/* secondimg style sheet */
+.secondimg {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  height: 700px;
+}
+
+.secondimg img {
+  position: absolute;
+  top: 50%;
+  left: 27%;
+  width: 780px;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(90%);
+  transition: transform 0.3s ease;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.secondimg h1 {
+  position: absolute;
+  top: 20%;
+  left: 56%;
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.secondimg p {
+  position: absolute;
+  top: 30%;
+  left: 55%;
+  padding: 1.5rem;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  line-height: 1.8;
+  width: 40%;
+  text-align: justify;
+}
+
+.secondimg a {
+  position: absolute;
+  top: 80%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.secondimg button {
+  font-size: 1rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  padding: 0.80rem 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.secondimg button:hover {
+  background-color: #0056b3;
+}
+
+
+/* thirdimg style sheet */
+.thirdimg {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  height: 700px;
+}
+
+.thirdimg img {
+  position: absolute;
+  top: 50%;
+  left: 73%;
+  /* Right side of the container */
+  width: 780px;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(90%);
+  transition: transform 0.3s ease;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.thirdimg h1 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.thirdimg p {
+  position: absolute;
+  top: 30%;
+  left: 2%;
+  padding: 1.5rem;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  line-height: 1.8;
+  width: 40%;
+  text-align: justify;
+}
+
+.thirdimg a {
+  position: absolute;
+  top: 84%;
+  left: 9%;
+  transform: translate(-50%, -50%);
+}
+
+.thirdimg button {
+  font-size: 1rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  padding: 0.80rem 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.thirdimg button:hover {
+  background-color: #0056b3;
+}
+
+/* fourthimg style sheet */
+.fourthimg {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  height: 700px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.fourthimg img {
+  position: absolute;
+  top: 50%;
+  left: 27%;
+  width: 780px;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(90%);
+  transition: transform 0.3s ease;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.fourthimg h1 {
+  position: absolute;
+  top: 20%;
+  left: 56%;
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.fourthimg p {
+  position: absolute;
+  top: 30%;
+  left: 55.1%;
+  padding: 1.5rem;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  line-height: 1.8;
+  width: 40%;
+  text-align: justify;
+}
+
+.fourthimg a {
+  position: absolute;
+  top: 75%;
+  left: 61%;
+  transform: translate(-50%, -50%);
+}
+
+.fourthimg button {
+  font-size: 1rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  padding: 0.80rem 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fourthimg button:hover {
+  background-color: #0056b3;
+}
+
+/* fifthimg style sheet */
+.fifthimg {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  height: 700px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.fifthimg img {
+  position: absolute;
+  width: 80px;
+  top: 19%;
+  left: 23%;
+}
+
+.fifthimg h1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.fifthimg p {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1.5rem;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.fifthimg a {
+  position: absolute;
+  top: 77%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fifthimg button {
+  font-size: 1rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  padding: 0.80rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fifthimg button:hover {
+  background-color: #0056b3;
+}
+
+/* top button styles */
+#backToTopBtn {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  font-size: 28px;
+  width: 45px;
+  height: 45px;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  line-height: 45px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#backToTopBtn:hover {
+  background-color: #ffffff;
+  transform: scale(1.1);
+  color: black;
+}
+
+
+@media (max-width: 768px) {
+  /* Image Sections Layout */
+  .secondimg,
+  .thirdimg,
+  .fourthimg,
+  .fifthimg {
+    height: auto;
+    padding: 2rem 0;
+    position: relative;
+  }
+
+  .secondimg img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 300px;
+    transform: none;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .thirdimg img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 300px;
+    transform: none;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .fourthimg img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 300px;
+    transform: none;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .secondimg h1 {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 90%;
+    margin: 1.5rem auto;
+    font-size: 2rem;
+  }
+
+  .thirdimg h1 {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 90%;
+    margin: 1.5rem auto;
+    font-size: 2rem;
+  }
+
+  .fourthimg h1 {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 90%;
+    margin: 1.5rem auto;
+    font-size: 2rem;
+  }
+
+  .fifthimg h1 {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 90%;
+    margin: 1.5rem auto;
+    font-size: 2rem;
+  }
+
+  .secondimg p {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 90%;
+    margin: 0 auto 1.5rem;
+    padding: 0;
+    font-size: 0.95rem;
+    text-align: justify;
+  }
+
+  .thirdimg p {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 90%;
+    margin: 0 auto 1.5rem;
+    padding: 0;
+    font-size: 0.95rem;
+    text-align: justify;
+  }
+
+  .fourthimg p {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 90%;
+    margin: 0 auto 1.5rem;
+    padding: 0;
+    font-size: 0.95rem;
+    text-align: justify;
+  }
+
+  .fifthimg p {
+    position: relative;
+    width: 80%;
+    margin: 0 auto 1.5rem;
+    padding: 0;
+    font-size: 0.95rem;
+    text-align: justify;
+    display: block;
+    box-sizing: border-box;
+    height: 500px;
+    overflow: auto;
+    margin-right: 20%;
+  }
+
+  .secondimg a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    display: block;
+    text-align: center;
+    margin: 1rem auto 2rem;
+  }
+
+  .thirdimg a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    display: block;
+    text-align: center;
+    margin: 1rem auto 2rem;
+  }
+
+  .fourthimg a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    display: block;
+    text-align: center;
+    margin: 1rem auto 2rem;
+  }
+
+  .fifthimg a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    display: block;
+    text-align: center;
+    margin: 1rem auto 2rem;
+    margin-top: -15%;
+  }
+
+  .fifthimg img {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    display: block;
+    width: 60px;
+  }
+}
+
+/* Tablet Adjustments */
+@media (min-width: 769px) and (max-width: 992px) {
+
+  /* Image Sections */
+  .secondimg img,
+  .thirdimg img,
+  .fourthimg img {
+    width: 650px;
+    height: 420px;
+  }
+
+  .secondimg h1,
+  .thirdimg h1,
+  .fourthimg h1 {
+    font-size: 2.5rem;
+  }
+
+  .secondimg p,
+  .thirdimg p,
+  .fourthimg p {
+    width: 45%;
+    font-size: 0.95rem;
+  }
+
+  /* Position Adjustments */
+  .secondimg h1 {
+    left: 65%;
+  }
+
+  .thirdimg h1 {
+    left: 25%;
+  }
+
+  .fourthimg h1 {
+    left: 50%;
+  }
+}

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacts Details</title>
+  <link rel="stylesheet" href="contacts.css">
+  <script src="index.js" defer></script>
+
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">St. Francis De Sales</div>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        &#9776; <!-- Unicode Hamburger Icon -->
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="fathers.html" class="nav-link">Church Root</a></li>
+        <li><a href="contacts.html" class="nav-link">Contact Us</a></li>
+        <li><a href="sainthis.html" class="nav-link">Patron Saint</a></li>
+        <li><a href="family.html" class="nav-link">Parish Family</a></li>
+      </ul>
+    </div>
+  </nav>
+    <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #1e3c72;
+      --secondary-color: #2a5298;
+      --accent-color: #007BFF;
+      --text-color: #333;
+      --light-bg: #f8f9fa;
+      --white: #ffffff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* ==== FOOTER ==== */
+    .footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 3rem 1rem;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1300px;
+      margin: 0 auto;
+      gap: 3rem;
+    }
+
+    .footer-box {
+      flex: 1;
+      min-width: 220px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-contact p {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-row a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .contact-row a:hover {
+      opacity: 0.8;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    /* Back to Top Button */
+    #backToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 99;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    #backToTopBtn:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive */
+    body {
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contact1">
+    <img class="contact1__bg"
+      src="https://images.unsplash.com/photo-1478147427282-58a87a120781?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="Church community gathering">
+    <div class="contact1__overlay"></div>
+    <div class="contact1__content">
+      <h1 class="contact1__heading">Get in Touch with Us</h1>
+      <p class="contact1__text">We are always happy to hear from you. Whether you have questions about our parish, wish
+        to reach out to our priests, or would like to get involved in church activities, feel free to contact us using
+        the details below. May God bless your visit and guide you closer to his love.</p>
+    </div>
+  </div>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Contact1 Section (similar to about1)
+      const contact1Section = document.querySelector('.contact1');
+      if (contact1Section) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-inview');
+
+              // Parallax effect setup
+              const bg = entry.target.querySelector('.contact1__bg');
+              if (bg) {
+                window.addEventListener('scroll', () => {
+                  const scrollY = window.scrollY;
+                  bg.style.transform = `scale(1.05) translateY(${scrollY * 0.3}px)`;
+                });
+              }
+
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.2,
+          rootMargin: '200px 0px'
+        });
+        observer.observe(contact1Section);
+      }
+    });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const contactSection = document.querySelector('.contact1');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-inview');
+        // Optional: Unobserve after animation triggers
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px' // Triggers when 50px from bottom of viewport
+  });
+  if (contactSection) {
+    observer.observe(contactSection);
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const contactSection = document.querySelector('.contact3');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        // Optional: Unobserve after animation triggers
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  if (contactSection) {
+    observer.observe(contactSection);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  function setActiveLink() {
+    // Remove active class from all links first
+    navLinks.forEach(link => link.classList.remove('active'));
+    
+    // Check current page
+    const currentPath = window.location.pathname;
+    let activeLink = null;
+    
+    // First try to find exact match
+    navLinks.forEach(link => {
+      const linkPath = link.getAttribute('href');
+      if (currentPath.endsWith(linkPath)) {
+        activeLink = link;
+      }
+    });
+    
+    // If no exact match, try partial match
+    if (!activeLink) {
+      navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (currentPath.includes(linkPath)) {
+          activeLink = link;
+        }
+      });
+    }
+    
+    // If still no match, use stored link
+    if (!activeLink) {
+      const storedLink = localStorage.getItem('activeNavLink');
+      activeLink = document.querySelector(`.nav-link[href="${storedLink}"]`);
+    }
+    
+    // Set active class
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+  }
+  
+  // Set initial active link
+  setActiveLink();
+  
+  // Add click handlers
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      localStorage.setItem('activeNavLink', this.getAttribute('href'));
+      setActiveLink();
+    });
+  });
+});
+  </script>
+
+  <div class="contact3">
+    <h2>Our Church Location</h2>
+    <p>St. Mary’s Church, Kattuwa, stands as a spiritual beacon in the heart of the community. Nestled in the serene
+      surroundings of Kattuwa, our church has been a place of worship, fellowship, and service for generations. Easily
+      accessible and surrounded by peaceful landscapes, it continues to welcome all who seek faith, hope, and love.
+      Discover the sacred space where countless lives have been touched by God’s grace.</p>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.053902306652!2d79.8472859744848!3d7.234692464491487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2eeb5af08d7e7%3A0x9c33da191c6bd0ec!2sSt%20Francis%20De%20Sales%20Church%2C%20Negombo!5e0!3m2!1sen!2slk!4v1748511607523!5m2!1sen!2slk"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+
+  <div class="contact4">
+    <h2>Reach Out – Prayer, Questions, or Visit</h2>
+    <p>We're here to serve you. Whether you're seeking prayer, have questions about our ministry, or want to visit our
+      church, please don't hesitate to get in touch. Our team is ready to welcome you and assist with any needs you may
+      have.</p>
+
+    <div class="list">
+      <ul>
+        <li>
+          <div class="contact-info">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h3>Our Location</h3>
+              <p>123 Church Street, Faith City, FC 12345</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="contact-info">
+            <div class="contact-icon">📞</div>
+            <div class="contact-details">
+              <h3>Phone</h3>
+              <p><a href="tel:+1234567890">(123) 456-7890</a></p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="contact-info">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <p><a href="mailto:info@church.org">info@church.org</a></p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="contact-info">
+            <div class="contact-icon">🕒</div>
+            <div class="contact-details">
+              <h3>Office Hours</h3>
+              <p>Monday-Friday: 9am-5pm<br>Sunday: 8am-1pm</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="contact-info">
+            <div class="contact-icon">✟</div>
+            <div class="contact-details">
+              <h3>Weekdays Mass</h3>
+              <p>Monday-Friday: 7am-8am<br>Friday: 6pm-7pm</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="contact-info">
+            <div class="contact-icon">✞ </div>
+            <div class="contact-details">
+              <h3>Weekends Mass</h3>
+              <p>Saturday: 5pm-6pm<br>Sunday: 8am-9am</p>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</body>
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- About -->
+    <div class="footer-box">
+      <img src="./images/logo.jpg" alt="Church Logo" class="footer-logo">
+      <p>"Give me a spirit for salvation. It is because of your love"</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-box footer-contact">
+      <h3>Contact Us</h3>
+      <p>123 Church Street, Kattuwa, Negombo, Sri Lanka</p>
+
+      <div class="contact-row">
+        Phone:
+        <a href="tel:+94123456789">+94 123 456 789</a>
+      </div>
+
+      <div class="contact-row">
+        Email:
+        <a href="mailto:info@stfranciskattuwa.org">info@stfranciskattuwa.org</a>
+      </div>
+
+      <p>Sunday Services: 9:00 AM & 11:00 AM</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-box footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="fathers.html">Church Leaders</a></li>
+        <li><a href="contacts.html">Contact Details</a></li>
+        <li><a href="sainthis.html">Patron Saint</a></li>
+        <li><a href="family.html">Parish Family</a></li>
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div class="footer-box footer-social">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1EWvriipvi/?mibextid=wwXIfr" target="_blank">
+          <img src="./images/fb.png" alt="Facebook">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; <span id="current-year">2025</span> Designed By Ceylon Innovation</p>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTopBtn" aria-label="Back to top">↑</button>
+
+
+</html>
